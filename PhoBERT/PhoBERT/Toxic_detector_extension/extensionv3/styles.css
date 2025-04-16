@@ -1,0 +1,55 @@
+/* styles.css - Thêm vào cuối file */
+
+/* Indicator styles for different categories */
+.toxic-indicator {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+}
+
+.toxic-indicator-clean {
+  background-color: #4CAF50 !important;
+  opacity: 0.6;
+}
+
+.toxic-indicator-offensive {
+  background-color: #FF9800 !important;
+}
+
+.toxic-indicator-hate {
+  background-color: #F44336 !important;
+}
+
+.toxic-indicator-spam {
+  background-color: #9C27B0 !important;
+}
+
+/* Blurred content - chỉ áp dụng cho hate speech */
+.toxic-blur {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+.toxic-blur:hover {
+  filter: blur(3px);
+}
+
+/* Reveal button */
+.toxic-reveal-btn {
+  margin-left: 8px;
+  padding: 2px 8px;
+  background-color: #F44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.toxic-reveal-btn:hover {
+  background-color: #D32F2F;
+}

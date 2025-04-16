@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toxic Language Detector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="../icons/iris_scan.png" alt="Logo" class="logo">
+      <h1>Toxic Language Detector</h1>
+    </div>
+    
+    <div class="toggle-container">
+      <label class="toggle">
+        <input type="checkbox" id="enable-toggle" checked>
+        <span class="slider"></span>
+      </label>
+      <span class="toggle-label">Enable Extension</span>
+    </div>
+    
+    <div class="settings">
+      <h2>Settings</h2>
+      
+      <div class="setting-item">
+        <label for="threshold">Sensitivity Threshold:</label>
+        <input type="range" id="threshold" min="0.5" max="0.9" step="0.05" value="0.7">
+        <span id="threshold-value">0.7</span>
+      </div>
+      
+      <div class="setting-item">
+        <label class="checkbox">
+          <input type="checkbox" id="highlight-toxic" checked>
+          <span class="checkmark"></span>
+          Highlight Toxic Content
+        </label>
+      </div>
+      
+      <h3>Enable on Platforms:</h3>
+      <div class="platforms">
+        <label class="checkbox">
+          <input type="checkbox" id="platform-facebook" checked>
+          <span class="checkmark"></span>
+          Facebook
+        </label>
+        
+        <label class="checkbox">
+          <input type="checkbox" id="platform-youtube" checked>
+          <span class="checkmark"></span>
+          YouTube
+        </label>
+        
+        <label class="checkbox">
+          <input type="checkbox" id="platform-twitter" checked>
+          <span class="checkmark"></span>
+          Twitter
+        </label>
+      </div>
+    </div>
+    
+    <div class="stats">
+      <h2>Thống kê</h2>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-value" id="stat-scanned">0</div>
+          <div class="stat-label">Đã quét</div>
+        </div>
+        
+        <div class="stat-item clean">
+          <div class="stat-value" id="stat-clean">0</div>
+          <div class="stat-label">Bình thường</div>
+        </div>
+        
+        <div class="stat-item offensive">
+          <div class="stat-value" id="stat-offensive">0</div>
+          <div class="stat-label">Xúc phạm</div>
+        </div>
+        
+        <div class="stat-item hate">
+          <div class="stat-value" id="stat-hate">0</div>
+          <div class="stat-label">Thù ghét</div>
+        </div>
+        
+        <div class="stat-item spam">
+          <div class="stat-value" id="stat-spam">0</div>
+          <div class="stat-label">Spam</div>
+        </div>
+      </div>
+      <button id="reset-stats" class="reset-btn">Đặt lại thống kê</button>
+    </div>
+    
+    <div class="footer">
+      <p>Toxic Language Detector v1.0.0</p>
+      <p class="small">Developed for Research</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

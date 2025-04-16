@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Toxic Language Detector",
+  "version": "1.0.0",
+  "description": "Detect toxic language on social media platforms",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.facebook.com/*",
+    "*://*.youtube.com/*",
+    "*://*.twitter.com/*", 
+    "*://*.x.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.facebook.com/*",
+        "*://*.youtube.com/*",
+        "*://*.twitter.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/iris_scan.png",
+      "48": "icons/iris_scan.png",
+      "128": "icons/iris_scan.png"
+    }
+  },
+  "icons": {
+    "16": "icons/iris_scan.png",
+    "48": "icons/iris_scan.png",
+    "128": "icons/iris_scan.png"
+  }
+}
