@@ -1,18 +1,74 @@
-Mong muốn triển khai extension và dashboard như sau:
-+ Tools và framework:
-_ php - laravel(với source đã có khung xương của code) và sử dụng DB MySQL
-_ Python - SQL Server
-_ C# - ASP .NET, entity framework
+# 🛡️ Toxic Language Detector on Social Media
 
-+ Thiết kế theo kiểu client - server, hoặc MVC, hoặc lấy API
-+ Với giao diện:
-Extension phải có xác thực login, logout, register, forget password, có thể chọn được model phát hiện
-=> Sau đó phân quyền đối với user chỉ xem được danh sách của các label từng comment, thời gian phát hiện, tần xuất comment, chi tiết comment của mỗi user đó khi được điều hướng sang giao diện web. Còn đối với admin sẽ được toàn quyền là được truy cập vào giao diện web để xem được gồm dashboard, chi tiết(label, comment, thời gian, tên người commnet, tần suất), danh sách user, thêm sửa xóa user, phân quyền, xem được trang để xuất tài liệu pdf, excel, word, print
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0-green)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
 
-API:
-Triển khai model đã huấn luyện thành FAST API trên hugging face để lấy API model, lấy cả Graph API của các nền tảng mạng xã hội để triển khai extension thành công cần phải có những yêu cầu nội dung sau:
- - DB phân quyền Admin user, comment log để lưu trữ thông tin, log của hệ thống ghi, [người dùng, role, comment 
-- Trạng thái được lưu (lưu thông tin cmt đã được ktra,] 
-- Xây dựng API: 4 gói chứa model, config security, FE, API: chia làm 2 endpoint: từ extension về hệ thống, API cho user admin 
-- Dùng database có vector và mối quan hệ 
-- Dùng ngôn ngữ python triển khai xử lý logic và thao tác khác, đặc biệt bộ dữ liệu huấn luyện model .h5, safetensor gồm 4 nhãn là 0-clean, 1-offensive, 2-hate, 3-spam
+## 📖 Project Overview
+**Toxic Language Detector** is an analytical system designed to detect and flag toxic, offensive, hate speech, or spam comments across popular social media platforms like Facebook, YouTube, and Twitter/X. Deployed as a **Browser Extension** paired with a **FastAPI Backend** and a robust **Admin Dashboard**, this project aims to foster a safe and civilized digital environment.
+
+The core machine learning models (utilizing LSTM/PhoBERT) are trained to classify text into four main categories:
+- `0`: 🟢 Clean
+- `1`: 🟡 Offensive
+- `2`: 🔴 Hate speech
+- `3`: 🟣 Spam
+
+---
+
+## 🚀 Key Features
+
+### 1. Browser Extension (Client)
+- **Real-time Integration**: Scans and analyzes comments directly on Facebook, YouTube, and Twitter.
+- **User Protection**: Automatically blurs or color-codes detected toxic comments for warning.
+- **Secure Authentication**: Supports Login, Register, and Forgot Password functionalities.
+- **Model Customization**: Allows users to select their preferred detection model.
+- **Smart Navigation**: Direct links to the Dashboard for users to view their alert history and details.
+
+### 2. Management System (Dashboard & Admin Panel)
+**For Users:**
+- View the list and history of detected comment labels.
+- Track the frequency and time of violations.
+- View detailed information for each alert.
+
+**For Administrators:**
+- **Comprehensive Management**: Overview statistics (Dashboard), monitor comment frequencies, commenter details, and warning labels.
+- **User Management**: Add, edit, delete, and assign roles to system users.
+- **Report Exporting**: Support exporting data to PDF, Excel, Word, or direct printing.
+- **System Logging**: Track activities and comment statuses (checked, unchecked).
+
+### 3. API & AI Backend
+- **Hugging Face Integration**: Deploys deep learning models (LSTM, PhoBERT) via FastAPI.
+- **Social Media Graph API**: Integrates data streams from social media platforms.
+- **Vector Database**: Utilizes a database capable of storing vectors and establishing complex relationships for fast and efficient retrieval.
+
+---
+
+## 🛠️ Technology Stack
+
+The project implements a flexible **Client - Server / MVC** and Microservices architecture:
+
+- **AI & Data Processing**: Python (TensorFlow/Keras for `.h5`, `.safetensors` formats).
+- **Backend API**: FastAPI (facilitating communication between the Extension and the Analysis System).
+- **Web Dashboard**: 
+  - PHP (Laravel) with MySQL.
+  - C# (ASP.NET Core, Entity Framework).
+  - Python connecting to SQL Server.
+- **Frontend Extension**: HTML, CSS, JavaScript (Chrome Extension V3 API).
+
+---
+
+## 📂 System Architecture (API Design)
+
+The system is divided into 4 independent modules (packages):
+1. **Model Service**: Handles machine learning logic and predictions.
+2. **Security & Config**: Authentication (JWT/OAuth), authorization, and security.
+3. **Frontend / Web Dashboard**: User and administrator interfaces.
+4. **API Gateway**: 
+   - *Endpoint 1*: Two-way communication between the Extension and the System.
+   - *Endpoint 2*: Serves User and Admin database operations.
+
+---
+
+## 📝 License
+This project was developed for Scientific Research purposes.
